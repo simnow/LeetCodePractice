@@ -46,7 +46,9 @@ public class LeetCode35 {
         int left = 0;
         int right = nums.length - 1;
         int mid = (left + right) / 2;
-        if (nums[mid] == target) return mid;
+        if (nums[mid] == target) {
+            return mid;
+        }
         int index = 0;
         while (nums[mid] != target && right > left) {
                 if (nums[mid]>target){
