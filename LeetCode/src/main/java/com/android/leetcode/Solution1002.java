@@ -1,5 +1,9 @@
 package com.android.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Solution1002
  *
@@ -23,4 +27,56 @@ package com.android.leetcode;
  * @date 1/31/21 12:55 PM
  */
 public class Solution1002 {
+    public static void main(String[] args) {
+        String[] mA={"bella","label","roller"};
+        System.out.println("mA = " + commonChars(mA));
+        System.out.println("mA = " + commonChars1(mA));
+    }
+
+    public static List<String> commonChars(String[] A) {
+        int[] minfreq = new int[26];
+        Arrays.fill(minfreq, Integer.MAX_VALUE);
+        for (String word : A) {
+            int[] freq = new int[26];
+            int length = word.length();
+            for (int i = 0; i < length; ++i) {
+                char ch = word.charAt(i);
+                ++freq[ch - 'a'];
+            }
+            for (int i = 0; i < 26; ++i) {
+                minfreq[i] = Math.min(minfreq[i], freq[i]);
+            }
+        }
+
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 26; ++i) {
+            for (int j = 0; j < minfreq[i]; ++j) {
+                ans.add(String.valueOf((char) (i + 'a')));
+            }
+        }
+        return ans;
+    }
+
+    public static List<String> commonChars1(String[] mA){
+        int[] minFreq=new int[26];
+        Arrays.fill(minFreq,Integer.MAX_VALUE);
+        for (String word:mA){
+            int[] freq = new int[26];
+            int length = word.length();
+            for (int i = 0; i < length; ++i) {
+                char ch = word.charAt(i);
+                ++freq[ch - 'a'];
+            }
+            for (int i = 0; i < 26; ++i) {
+                minFreq[i] = Math.min(minFreq[i], freq[i]);
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 26; ++i) {
+            for (int j = 0; j < minFreq[i]; ++j) {
+                ans.add(String.valueOf((char) (i + 'a')));
+            }
+        }
+        return ans;
+    }
 }
