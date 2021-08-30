@@ -1,5 +1,9 @@
 package com.android.leetcode.offer;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * 剑指 Offer 10- I. 斐波那契数列
  * 动态规划算法
@@ -54,6 +58,15 @@ public class Offer10_I {
             sum = (a + b) % 1000000007;
             a = b;
             b = sum;
+        }
+        return a;
+    }
+    public static int fib0(int n){
+        int a=0,b=1,sum;
+        for (int i = 0; i <n ; i++) {
+            sum=(a+b)%1000000007;
+            a=b;
+            b=sum;
         }
         return a;
     }
