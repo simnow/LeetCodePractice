@@ -8,7 +8,7 @@ public class Offer18 {
 
     }
 
-    class Solution {
+    public static class Solution {
         public ListNode deleteNode(ListNode head, int val) {
             if (head == null) {
                 return null;
@@ -26,13 +26,13 @@ public class Offer18 {
             return head;
         }
     }
-}
 
-class ListNode {
-    int val;
-    ListNode next;
+    public static class ListNode {
+        int val;
+        ListNode next;
 
-    public ListNode(int val) {
-        this.val = val;
+        public ListNode(int val) {
+            this.val = val;
+        }
     }
 }
