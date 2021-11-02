@@ -1,16 +1,23 @@
 package com.android.leetcode;
 
 
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author liangzhen
  */
 public class Test001 {
+
+    public class A{
+
+    }
+    public class B extends A{}
+
     public static void main(String[] args) {
-        String s = "abcde";
-        String[] words = {"a","bb","acd","ace"};
-        System.out.println(countSubString(s,words));
+        int count=102%100000;
+        search();
+        System.out.println(updateTotal5d());
+        search();
     }
     public static int countSubString(String s, String[] words){
         int result=0;
@@ -31,5 +38,17 @@ public class Test001 {
             }
         }
         return result;
+    }
+    private static AtomicInteger totalRequest = new AtomicInteger(0);
+
+    private static void search(){
+        for (int i = 0; i < 100; i++) {
+            System.out.println(updateTotal5d());
+        }
+    }
+
+    public static String updateTotal5d() {
+        int total = totalRequest.getAndIncrement() % 100000;
+        return String.format("%05d", total);
     }
 }
